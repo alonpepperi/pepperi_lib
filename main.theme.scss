@@ -1,0 +1,192 @@
+@charset 'UTF-8';
+// @import 'variables.css';
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+// 1. Configuration and helpers
+@import 'abstracts/breakpoints', 'abstracts/functions', 'abstracts/variables', 'abstracts/mixins';
+// 2. Vendors
+@import 'vendors/normalize';
+// 3. Base stuff
+@import 'base/helpers', 'base/base', 'base/typography';
+
+// 4. theme
+@import '~@angular/material/theming';
+
+// Override material font.
+$pepperi-typography: mat-typography-config(
+    $font-family: $font-family-body
+);
+@include mat-core($pepperi-typography);
+
+/*************************************************************************************************************/
+/* Here we add the system + component's themes (all the colors definitions that change by the theme) - Start */
+/*************************************************************************************************************/
+// @import '../app/shared/pepperi-header/pepperi-header.component.theme';
+
+@import 'components/general', 'components/button', 'components/checkbox', 'components/radio-button', 'components/datetime', 'components/file', 'components/input', 'components/select',
+    'components/signature', 'components/splitter', 'components/textarea', 'components/quantity-selector';
+
+// @import 'pepperi-lib/address/address.component.theme.scss';
+// @import 'pepperi-lib/pepperi-attachment/pepperi-attachment.component.theme.scss';
+// @import 'pepperi-lib/pepperi-button/pepperi-button.component.theme.scss';
+// @import 'pepperi-lib/pepperi-checkbox/pepperi-checkbox.component.theme.scss';
+// @import 'pepperi-lib/pepperi-date/pepperi-date.component.theme.scss';
+@import 'pepperi-lib/field-title/field-title.component.theme.scss';
+// @import 'pepperi-lib/pepperi-image/pepperi-image.component.theme.scss';
+// @import 'pepperi-lib/pepperi-images-filmstrip/pepperi-images-filmstrip.component.theme.scss';
+// @import 'pepperi-lib/pepperi-indicators/pepperi-indicators.component.theme.scss';
+// @import 'pepperi-lib/pepperi-internal-page/pepperi-internal-page.component.theme.scss';
+// @import 'pepperi-lib/pepperi-menu/pepperi-menu.component.theme.scss';
+// @import 'pepperi-lib/pepperi-quantity-selector/pepperi-quantity-selector.component.theme.scss';
+// @import 'pepperi-lib/pepperi-rich-html-textarea/pepperi-rich-html-textarea.component.theme.scss';
+// @import 'pepperi-lib/select/select.component.theme.scss';
+// @import 'pepperi-lib/pepperi-separator/pepperi-separator.component.theme.scss';
+// @import 'pepperi-lib/pepperi-signature/pepperi-signature.component.theme.scss';
+// @import 'pepperi-lib/pepperi-textarea/pepperi-textarea.component.theme.scss';
+@import 'pepperi-lib/textbox/textbox.component.theme.scss';
+@import 'pepperi-lib/textbox-icon/textbox-icon.component.theme.scss';
+
+// @import '../app/shared/files-uploader/files-uploader.component.scss-theme';
+
+// @import '../app/account-details/account-details.component.scss-theme';
+// @import '../app/shared/expanded-footer/expanded-footer.component.scss-theme';
+// @import '../app/shared/pepperi-form/pepperi-form.component.scss-theme';
+// @import '../app/shared/pepperi-list/pepperi-list.component.scss-theme';
+
+// @import '../app/shared/pepperi-color/pepperi-color.component.scss-theme';
+// @import '../app/shared/pepperi-color-picker/pepperi-color-picker.component.scss-theme';
+
+// @import '../app/settings/settings-bar/settings-bar.component.scss-theme';
+// @import '../app/shared/top-bar/top-bar.component.scss-theme';
+// @import '../app/shared/side-bar/side-bar.component.scss-theme';
+
+// @import '../app/shared/list-menu/list-menu.component.scss-theme';
+// @import '../app/shared/list-actions/list-actions.component.scss-theme';
+// @import '../app/shared/list-chooser/list-chooser.component.scss-theme';
+// @import '../app/shared/sort-by/sort-by.component.scss-theme';
+// @import '../app/shared/search/search.component.scss-theme';
+// @import '../app/shared/workflow/workflow.component.scss-theme';
+// @import '../app/shared/list-total/list-total.component.scss-theme';
+// @import '../app/shared/list-totals-view/list-totals-view.component.scss-theme';
+// @import '../app/shared/json-date-filter/json-date-filter.component.scss-theme';
+// @import '../app/shared/bread-crumbs/bread-crumbs.component.scss-theme';
+// @import '../app/shared/rich-text-editor/rich-text-editor.component.scss-theme';
+// @import '../app/shared/global-dialog/global-dialog.component.scss-theme';
+// @import '../app/shared/downloads/downloads.component.scss-theme';
+
+
+// Use this import in a real project instead
+@import '~@mat-datetimepicker/core/datetimepicker/datetimepicker-theme.scss';
+
+@mixin declare-system-theme($material-theme) {
+    // Add angular-material-theme.
+    @include angular-material-theme($material-theme);
+
+    // Add mat-datetimepicker-theme.
+    @include mat-datetimepicker-theme($material-theme);
+
+    // Declare the system globals.
+    $pepperi-theme: get-pepperi-theme();
+
+    @include declare-system-base-theme($pepperi-theme);
+    @include declare-system-typography-theme($pepperi-theme);
+
+    // Add global layout.
+    // @include pepperi-header-theme($pepperi-theme);
+
+    // Add global components themes.
+    @include pepperi-general-theme($pepperi-theme);
+    @include pepperi-button-theme($pepperi-theme);
+    @include pepperi-checkbox-theme($pepperi-theme);
+    @include pepperi-radio-button-theme($pepperi-theme);
+    @include pepperi-datetime-theme($pepperi-theme);
+    @include pepperi-file-theme($pepperi-theme);
+    @include pepperi-input-theme($pepperi-theme);
+    @include pepperi-select-theme($pepperi-theme);
+    @include pepperi-signature-theme($pepperi-theme);
+    @include pepperi-splitter-theme($pepperi-theme);
+    @include pepperi-textarea-theme($pepperi-theme);
+    // @include pepperi-files-uploader-theme($pepperi-theme);
+    // @include pepperi-color-component-theme($pepperi-theme);
+    // @include pepperi-color-picker-component-theme($pepperi-theme);
+
+
+    // Add form components themes.
+    // @include pepperi-address-component-theme($pepperi-theme);
+    // @include pepperi-attachment-component-theme($pepperi-theme);
+    // @include pepperi-button-component-theme($pepperi-theme);
+    // @include pepperi-checkbox-component-theme($pepperi-theme);
+    // @include pepperi-date-component-theme($pepperi-theme);
+    @include pepperi-field-title-theme($pepperi-theme);
+    // @include pepperi-image-component-theme($pepperi-theme);
+    // @include pepperi-images-filmstrip-component-theme($pepperi-theme);
+    // @include pepperi-indicators-component-theme($pepperi-theme);
+    // @include pepperi-internal-page-component-theme($pepperi-theme);
+    // @include pepperi-menu-component-theme($pepperi-theme);
+    // @include pepperi-quantity-selector-component-theme($pepperi-theme);
+    // @include pepperi-rich-html-textarea-component-theme($pepperi-theme);
+    // @include pepperi-select-component-theme($pepperi-theme);
+    // @include pepperi-separator-component-theme($pepperi-theme);
+    // @include pepperi-signature-component-theme($pepperi-theme);
+    // @include pepperi-textarea-component-theme($pepperi-theme);
+    @include pepperi-textbox-component-theme($pepperi-theme);
+    @include pepperi-textbox-icon-component-theme($pepperi-theme);
+
+
+    // @include pepperi-expanded-footer-component-theme($pepperi-theme);
+    // @include pepperi-account-details-component-theme($pepperi-theme);
+    // @include pepperi-pepperi-form-component-theme($pepperi-theme);
+    // @include pepperi-pepperi-list-component-theme($pepperi-theme);
+
+    // @include pepperi-settings-bar-component-theme($pepperi-theme);
+    // @include pepperi-top-bar-component-theme($pepperi-theme);
+    // @include pepperi-side-bar-component-theme($pepperi-theme);
+    // @include pepperi-list-menu-component-theme($pepperi-theme);
+    // @include pepperi-list-actions-component-theme($pepperi-theme);
+    // @include pepperi-list-chooser-component-theme($pepperi-theme);
+    // @include pepperi-sort-by-component-theme($pepperi-theme);
+    // @include pepperi-search-component-theme($pepperi-theme);
+    // @include pepperi-workflow-component-theme($pepperi-theme);
+    // @include pepperi-list-total-component-theme($pepperi-theme);
+    // @include pepperi-list-totals-view-component-theme($pepperi-theme);
+    // @include pepperi-json-date-filter-component-theme($pepperi-theme);
+    // @include pepperi-bread-crumbs-component-theme($pepperi-theme);
+    // @include pepperi-rich-text-editor-component-theme($pepperi-theme);
+    // @include pepperi-global-dialog-component-theme($pepperi-theme);
+    // @include pepperi-downloads-component-theme($pepperi-theme);
+
+}
+/*************************************************************************************************************/
+/* Here we add the system + component's themes (all the colors definitions that change by the theme) - End   */
+/*************************************************************************************************************/
+
+@import 'themes/default-theme.scss';
+.pepperi-default-theme {
+    $material-theme: $material-default-theme;
+    @include declare-system-theme($material-theme);
+
+    &:focus,
+    &:hover,
+    &:active {
+        background: unset;
+    }
+}
+
+@import 'themes/light-theme.scss';
+.light-theme {
+    $material-theme: $material-light-theme;
+    @include declare-system-theme($material-theme);// , $user-light-theme-color);
+}
+
+@import 'themes/black-theme.scss';
+.black-theme {
+    $material-theme: $material-black-theme;
+    @include declare-system-theme($material-theme);// , $user-black-theme-color);
+}
+
+@import 'themes/nature-theme.scss';
+.nature-theme {
+    $material-theme: $material-nature-theme;
+    @include declare-system-theme($material-theme);// , $user-nature-theme-color);
+}

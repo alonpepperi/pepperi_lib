@@ -1,0 +1,18 @@
+// @import 'abstracts/mixins';
+// @import 'abstracts/variables';
+
+:host {
+    height: inherit;
+    display: grid;
+    align-items: center;
+
+    .disable-hidden {
+        display:none;
+    }
+
+    .dis-grid {
+        display:grid;
+    }
+}
+
+

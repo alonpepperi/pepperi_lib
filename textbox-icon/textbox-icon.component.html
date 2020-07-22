@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="test">
+    <mat-icon *ngSwitchCase="true" class="text-icon">
+        <svg *ngIf="!disabled" class="svg-icon">
+            <use attr.xlink:href="{{ sessionService.svgIcons }}number-coins"></use>
+        </svg>
+    </mat-icon>
+
+</ng-container>

@@ -1,0 +1,23 @@
+{
+    "name": "@pepperi/lib",
+    "version": "0.0.1",
+    "peerDependencies": {
+        "@angular/animations": "~10.0.0",
+        "@angular/cdk": "^10.0.2",
+        "@angular/common": "^10.0.2",
+        "@angular/compiler": "~10.0.0",
+        "@angular/core": "^10.0.2",
+        "@angular/forms": "~10.0.0",
+        "@angular/material": "^10.0.1",
+        "@angular/material-moment-adapter": "^10.0.1",
+        "@angular/platform-browser": "~10.0.0",
+        "@angular/platform-browser-dynamic": "~10.0.0",
+        "@mat-datetimepicker/core": "^4.1.0",
+        "@mat-datetimepicker/moment": "^4.1.0",
+        "moment": "^2.24.0",
+        "rxjs": "^6.5.5"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    }
+}
